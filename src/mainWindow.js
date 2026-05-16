@@ -273,14 +273,14 @@ async function openMainWindow() {
 
     setTimeout(async () => {
       if (isPacked()) {
-        await mainWindow.loadURL("https://nerimity.com/login");
+        await mainWindow.loadURL("https://nerimity.geekuane.com/login");
       } else {
         await mainWindow.loadURL("http://localhost:3000/login");
       }
     }, 5000);
   });
   if (isPacked()) {
-    await mainWindow.loadURL("https://nerimity.com/login");
+    await mainWindow.loadURL("https://nerimity.geekuane.com/login");
   } else {
     await mainWindow.loadURL("http://localhost:3000/login");
     mainWindow.webContents.openDevTools({ mode: "detach" });
