@@ -8,10 +8,11 @@ on:
 jobs:
   release:
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
 
     strategy:
       matrix:
-        # Dropped macos-latest to focus strictly on Windows and Linux targets
         os: [windows-latest, ubuntu-latest]
 
     steps:
@@ -22,7 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm' # Automatically caches node_modules for faster subsequent builds
+          cache: 'npm'
 
       - name: Install Linux Build Dependencies
         if: matrix.os == 'ubuntu-latest'
@@ -51,7 +52,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Directly running electron-builder gives you better control and cleaner logs
       - name: Build/release Electron app
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
