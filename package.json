@@ -55,7 +55,7 @@
     "publish": {
       "provider": "github",
       "owner": "Zaerhova",
-      "repo": "Zaerhova/nerimity-desktop" 
+      "repo": "nerimity-desktop" 
     },
     "files": [
       "**/*",
